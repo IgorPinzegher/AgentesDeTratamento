@@ -140,9 +140,16 @@ form.addEventListener('submit', (event) => {
     (q8 === "Ambas" ? 1 : 0) +
     (q9 === "Ambas" ? 1 : 0) +
     (q10 === "Ambas" ? 1 : 0);
-  const operador = (score / 13) * 100;
-  const controlador = 100 - operador;
-  const coControlador = (score2 / 4) * 100;
+
+  let operador = (score / 13) * 100;
+  if (operador < 0) operador = 0;
+  
+  let controlador = 100 - operador;
+  if (controlador < 0) controlador = 0;
+  
+  let coControlador = (score2 / 4) * 100;
+  if (coControlador < 0) coControlador = 0;
+
   alert(`Probabilidade de você ser operador: ${operador.toFixed(2)}%\nProbabilidade de você ser controlador: ${controlador.toFixed(2)}%\nProbabilidade de você ser co-controlador: ${coControlador.toFixed(2)}%`);
 });
 	</script>
